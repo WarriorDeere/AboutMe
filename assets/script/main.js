@@ -1,16 +1,23 @@
 import { particle } from "./particle.js";
-import { slide } from "./switch-slide.js";
 
-particle.startMain(100);
+particle.startMain(300);
 
-const firstSlideTrigger = document.querySelector('#slide-1-trigger');
-firstSlideTrigger.addEventListener('click', () => {
-    slide.goFwd('#slide-1', '#slide-2', 'slide_top-bottom');
-})
+const toggleScheme = document.querySelector('#toggle-scheme');
+toggleScheme.addEventListener('click', () => {
+    toggleScheme.classList.toggle('icon-light')
+});
 
-const cards = document.querySelectorAll('.card');
-cards.forEach((card) => {
-    card.addEventListener('click', () => {
-        card.classList.toggle('card-link');
-    })
-})
+let container = document.getElementById('container');
+let isScrollingDown = false;
+
+container.addEventListener('scroll', function () {
+    if (container.scrollTop > this.lastScrollTop) {
+        // Benutzer scrollt nach unten
+        isScrollingDown = true;
+    } else {
+        // Benutzer scrollt nach oben oder steht still
+        isScrollingDown = false;
+    }
+
+    this.lastScrollTop = container.scrollTop;
+});
