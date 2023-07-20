@@ -15,9 +15,9 @@ class particles {
         for (let i = 0; i < particleCount; i++) {
             const particleBone = document.createElement('span');
             particleBone.classList.add('ptc');
-            particleBone.style.animationDelay = `${Math.random()}s`
-            container.appendChild(particleBone);
             placeSpanRandomly(particleBone);
+            container.appendChild(particleBone);
+            particleBone.style.animationDelay = `${Math.random()}s`
         }
 
         const spans = document.getElementsByClassName("ptc");
