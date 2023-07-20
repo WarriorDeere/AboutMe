@@ -1,10 +1,10 @@
 import { particle } from "./particle.js";
-import { slide } from "./switch-slide.js";
 
 particle.startMain(100);
 
 const landingPage = document.querySelector('#slide-1');
 const showroomTrigger = document.querySelector('#trigger-showroom');
+
 showroomTrigger.addEventListener('click', () => {
 
     showroomTrigger.classList.add('hide-opacity');
@@ -55,10 +55,3 @@ showroomTrigger.addEventListener('click', () => {
             throw new Error(err);
         })
 });
-
-const cards = document.querySelectorAll('.card');
-cards.forEach((card) => {
-    card.addEventListener('click', () => {
-        card.classList.toggle('card-link');
-    })
-})
